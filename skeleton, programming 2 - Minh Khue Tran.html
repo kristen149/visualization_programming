@@ -187,7 +187,7 @@
 
 					<>
 						// TODO 1.5: draw a sphere under the projection. The function "path" applies the projection which is simply inserted in the d attribute of path.
-						<path className="sphere" d={pathGenerator({type:'Sphere'})} />
+						<path className="sphere" d={pathGenerator({ type: 'Sphere' })} />
 				// TODO 1.5: draw the graticule by creating a path element similar to what you did before
 						<path className="graticule" d={pathGenerator(graticule())} />.
 
@@ -207,61 +207,61 @@
 		}) => {//return
 
 
-		
+
 			// TODO 2.1: delete the following line
 
 			// TODO 4.2: Memoization for land and interiors
 			// TODO 2.1: create a group with class name countries for styling that wraps the following JS scope
 			// <g> element might be used to group and organize the paths representing land and interiors
 
-					// Map land features to path elements
-					// If a projection is specified, sets the current projection to the specified projection.
-					const projection = d3.geoNaturalEarth1();
-					const pathGenerator = d3.geoPath(projection);
-					// const pathGenerator = d3.geoPath().projection(d3.geoNaturalEarth1());
-					//----------------------------------------------------------------------
-					//different feature for the land
-					//console.log(land.features)
-					//why use map? data type is MultiPolygon, an array of arrays 
-					//console.log(interiors)
-					const landPaths = land.features.map((feature, index) => (
-						<path
-							key={index}
-							className="land"
-							d={pathGenerator(feature)}
-							fill="lightgray" // Adjust the color 
-							stroke="white"
-							strokeWidth={0.5}
-						/>
-					));
-					// directly do path, d = pathInterior, have already the coordinate when console.log
-					//why dont need map?
-					//the coordinates property is already an array of line strings
-					const interiorsPaths = 
-						<path
-							className="interiors"
-							d={pathGenerator(interiors)}
-							fill="red" // for debug
-							stroke="red" //for debug
-							strokeWidth={1}
-						/>;
-					
-
-					return (
-						<g className="countries">
-							{landPaths}
-							{interiorsPaths}
-						</g>
-					)
+			// Map land features to path elements
+			// If a projection is specified, sets the current projection to the specified projection.
+			const projection = d3.geoNaturalEarth1();
+			const pathGenerator = d3.geoPath(projection);
+			// const pathGenerator = d3.geoPath().projection(d3.geoNaturalEarth1());
+			//----------------------------------------------------------------------
+			//different feature for the land
+			//console.log(land.features)
+			//why use map? data type is MultiPolygon, an array of arrays 
+			//console.log(interiors)
+			const landPaths = land.features.map((feature, index) => (
+				<path
+					key={index}
+					className="land"
+					d={pathGenerator(feature)}
+					fill="lightgray" // Adjust the color 
+					stroke="white"
+					strokeWidth={0.5}
+				/>
+			));
+			// directly do path, d = pathInterior, have already the coordinate when console.log
+			//why dont need map?
+			//the coordinates property is already an array of line strings
+			const interiorsPaths =
+				<path
+					className="interiors"
+					d={pathGenerator(interiors)}
+					fill="red" // for debug
+					stroke="red" //for debug
+					strokeWidth={1}
+				/>;
 
 
-			}
-			// TODO 2.1: enter a JS scope inside the group element (everything that follows will be in curly braces)
-			// TODO 2.1: create a react fragment
-			// TODO 2.1: inside the fragment enter another JS scope
-			// TODO 2.1: map the land features to path elements that draw the land masses (styling will make sure the paths are filled with the correct color)
-			// TODO: 2.1: draw another path for the interiors
-		
+			return (
+				<g className="countries">
+					{landPaths}
+					{interiorsPaths}
+				</g>
+			)
+
+
+		}
+		// TODO 2.1: enter a JS scope inside the group element (everything that follows will be in curly braces)
+		// TODO 2.1: create a react fragment
+		// TODO 2.1: inside the fragment enter another JS scope
+		// TODO 2.1: map the land features to path elements that draw the land masses (styling will make sure the paths are filled with the correct color)
+		// TODO: 2.1: draw another path for the interiors
+
 
 		// --------------------------------------------------
 		// TODO 2.2
@@ -305,7 +305,7 @@
 						const xValue = isNaN(x) ? 0 : x;
 						const yValue = isNaN(y) ? 0 : y;
 
-					
+
 						//console.log('x:', x, 'y:', y);
 						//console.log('Raw data:', d);
 						//console.log('d.coords:', d.coords);
@@ -313,7 +313,7 @@
 						return (
 
 							// TODO 2.2: return a circle with the key being the index, x and y the extracted coordinates and the radius passed through the sizeScale
-							<g 	key={index}	className="bubbleMarks">
+							<g key={index} className="bubbleMarks">
 
 								<circle
 									key={index}
@@ -373,33 +373,34 @@
 		// --------------------------------------------------
 
 		// TODO 3.2: create a AxisLeft component that takes the y scale, inner width and a tick offset
-		// TODO 3.2: on the y scale you can call the ticks() function which returns an array of tick positions
-		// TODO 3.2: we map the tick positions to a group element containing a line and a text
-		// TODO 3.2: create a group element with class name tick
-		// TODO 3.2: the key will be the tick value
-		// TODO 3.2: move the group to the right position using the transform of the group element
-		// TODO 3.2: now add the svg line element. Research which parameters it requires. Note that the y position is already correct due to the
-		// 			 transform we applied to the group
-		// TODO 3.2: add the text moved slightly to the left (use tick offset) 
-		// TODO 3.2: set the style attribute to  to make sure it aligns properly
-		// TODO 3.2: add the tick value as the text
+				// TODO 3.2: on the y scale you can call the ticks() function which returns an array of tick positions
+				// TODO 3.2: we map the tick positions to a group element containing a line and a text
+					// TODO 3.2: create a group element with class name tick
+						// TODO 3.2: the key will be the tick value
+						// TODO 3.2: move the group to the right position using the transform of the group element
+						// TODO 3.2: now add the svg line element. Research which parameters it requires. Note that the y position is already correct due to the
+						// 			 transform we applied to the group
+						// TODO 3.2: add the text moved slightly to the left (use tick offset) 
+						// TODO 3.2: set the style attribute to  to make sure it aligns properly
+						// TODO 3.2: add the tick value as the text
 
-		// TODO 3.2: add the bottom axis in the same way as the axis left. You will need the innerHeight to specify for positioning the text and line
-		// TODO 3.2: the textAnchor style for the text should be middle now
+			// TODO 3.2: add the bottom axis in the same way as the axis left. You will need the innerHeight to specify for positioning the text and line
+			// TODO 3.2: the textAnchor style for the text should be middle now
 
-		// TODO 3.2: create a Bars component that receives the binned data, x scale, y scale the tool
-		// TODO 3.2: map each binned data entry to a rectangle
-		// TODO 3.2: className should be bar
-		// TODO 3.2: key is the index
-		// TODO 3.2: all of the following must be passed through x scale or y scale
-		// TODO 3.2: x coordinate is the beginning of the bar on the x axis
-		// TODO 3.2: y coordinate is the top height of each bar (keep in mind that the origin of the coordinate system is in the top left)
-		// TODO 3.2: width of a bar should be the difference between start and end date of each bar
-		// TODO 3.2: height must be the inner height minus the height of the bar
+			// TODO 3.2: create a Bars component that receives the binned data, x scale, y scale the tool
+				// TODO 3.2: map each binned data entry to a rectangle
+						// TODO 3.2: className should be bar
+						// TODO 3.2: key is the index
+						// TODO 3.2: all of the following must be passed through x scale or y scale
+						// TODO 3.2: x coordinate is the beginning of the bar on the x axis
+						// TODO 3.2: y coordinate is the top height of each bar (keep in mind that the origin of the coordinate system is in the top left)
+						// TODO 3.2: width of a bar should be the difference between start and end date of each bar
+						// TODO 3.2: height must be the inner height minus the height of the bar
 
 
 		// TODO 3.1: Define an accessor function to access the total number of dead and missing migrants 
 		// 			 ("Total Dead and Missing") from the original data table.
+		const yValue = d => d['Total Dead and Missing'];
 		// TODO 3.2: Define variables containing the text of your y axis label (we won't define an x axis label)
 		// variables for the offset of the axis label
 		const yAxisLabelOffset = 30;
@@ -408,24 +409,51 @@
 		// TODO 3.2: Define a time format using d3.timeFormat
 
 		// TODO 4.1: brush extent setter as parameter
-		const Histogram = ({ width, height }) => {
+
+
+		const Histogram = ({ data, width, height }) => {
 			// TODO 3.1: compute innerHeight and innerWidth by subtracting the margins from width and height. If
 			// 			you replace width and height in the placeholder rectangle below you will see it shrinking but
 			// 			move to the wrong place. We will take care of that later
+			const innerWidth = width - margin.left - margin.right
+			const innerHeight = height - margin.top - margin.bottom
+
+			//console.log(data);
 			// TODO 3.1: Define an accessor function to access the date of the incident ("Reported Date") from
 			// 			 the orignal data table.
+			const xValue = d => d['Reported Date'];
 
 			// TODO 3.1: define the xScale using d3.scaleTime
-			// TODO 3.1: domain from min to max value of data. u can use d3.extent
-			// TODO 3.1: the range starts at zero and ends at inner width
-			// TODO 3.1: call nice to make it nice numbers for labeling		
-			// TODO 4.2: Memoization for scale
+						// TODO 3.1: domain from min to max value of data. u can use d3.extent
+						// TODO 3.1: the range starts at zero and ends at inner width
+						// TODO 3.1: call nice to make it nice numbers for labeling	
 
+			const xScale = d3.scaleTime()
+				.domain(d3.extent(data, xValue))
+				.range([0, innerWidth])
+				.nice();
+
+			//console.log('X-Value (Reported Date):', xValue);
 			// TODO 3.1: grab the start and end from the domain
-
+			const [xStart, xEnd] = xScale.domain();
 			// TODO 3.1: aggregate the data into bins you can find a detailed description in the pdf
-			// TODO 4.2: Memoization for the binned data
+			const bins = d3.histogram()
+				.value(xValue)
+				.domain(xScale.domain()) // Use d3.histogram to create bins based on the xScale
+				.thresholds(d3.timeMonths(xStart, xEnd))(data);
 
+			//console.log(yValue)
+			//console.log(bins)
+			const binnedData = bins.map(array => ({
+				x0: array.x0,
+				x1: array.x1,
+				y: d3.sum(array, yValue),
+			}));
+			console.log('Binned Data:', binnedData);
+
+
+			// TODO 4.2: Memoization for scale
+			// TODO 4.2: Memoization for the binned data
 			// TODO 3.2: use scaleLinear to define the scale of the y value in the bar chart (requires computation of binned data first)
 			// TODO 3.2: domain starts a zero and ends at maximum (d3.max) of binned data
 			// TODO 3.2: range is up to inner height
@@ -476,6 +504,11 @@
 			// read world atlas data amd migrant data
 			const worldAtlas = useWorldAtlas();
 			const data = useData();
+
+			if (!data) {
+				return <p>Loading data... </p>;
+			}
+
 			// const column = data.columns.length;
 			// const row = data.length;
 
@@ -495,24 +528,21 @@
 			// TODO 1.4: Pass the data to the Introduction component just like width and height are passed to Histogram and WorldGraticule
 			return (
 				<>
-					{(!data) ?
-						<div>Loading data...</div>
-						:
-						<Introduction row={data.length} column={data.columns.length} />
-					}
+
+					<Introduction row={data.length} column={data.columns.length} />
 
 					<svg width={width} height={height}>
 
 							// TODO 1.5: remove width and height from the world graticule component
 						<WorldGraticule width={width} height={height} />
 							// TODO 2.1: add the countries element and pass it the world Atlas
-						{worldAtlas ? (<Countries worldAtlas={worldAtlas} />) : (<div>Loading... </div>)}
+						<Countries worldAtlas={worldAtlas} />
 						// TODO 2.2: add the Bubbles element and pass it the data
-						{data ? (<Bubbles data={data} />) : (<div>Loading... </div>)}
+						<Bubbles data={data} />
 						// TODO 4.1: Pass the filtered data to bubbles
 						<g transform={`translate(0, ${height - dateHistogramSize * height})`}>
 								// TODO 4.1: Pass the setter function of the brush extent to Histogram
-							<Histogram width={width} height={height * 0.2} />
+							<Histogram data={data} width={width} height={height * 0.2} />
 						</g>
 					</svg>
 				</>
